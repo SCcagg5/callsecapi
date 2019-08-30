@@ -13,5 +13,5 @@ def call_sec(cn, nextc):
     err = check.contain(cn.pr, ["url"])
     if not err[0]:
         return cn.toret.add_error(err[1], err[2])
-    err = evts.call(cn.pr["url"], cn.pr["method"], cn.pr["data"] if check.contain(cn.pr, ["data"])[0] else None)
+    err = evts.call(cn.pr["url"], cn.pr["method"], cn.pr["data"] if check.contain(cn.pr, ["data"])[0] else None, cn.pr["header"] if check.contain(cn.pr, ["header"])[0] else None)
     return cn.call_next(nextc, err)
