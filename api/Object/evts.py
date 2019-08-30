@@ -8,11 +8,11 @@ class evts:
                 return [True, None, None]
         return [False, "invalid method " + str(method), 401]
 
-    def call(url, method, data = None):
+    def call(url, method, data = None, header = none):
         auth={  "put" : [requests.put, (url)],
                 "delete": [requests.delete, (url)],
                 "patch": [requests.patch, (url)],
-                "post": [requests.post, (url, {"data": data})],
+                "post": [requests.post, (url, {"data": data, "header": header})],
                 "head": [requests.head, (url)],
                 "options": [requests.options, (url)],
                 "get": [requests.get, {"params": data}]
